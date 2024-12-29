@@ -5,9 +5,9 @@ import { ProductListComponent } from "./pages/product-list/product-list.componen
 
 @Component({
     selector: 'app-root',
-    imports: [HeaderComponent, ProductListComponent],
+    imports: [HeaderComponent, RouterOutlet],
     template: ` <app-header />
-      <app-product-list />
+                <router-outlet />
     `,
     styles: []
 })
