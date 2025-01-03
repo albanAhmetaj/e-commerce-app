@@ -16,6 +16,9 @@ export class CartService {
   removeFromCart(id: number) {
     this.cart.set(this.cart().filter((p) => p.id !== id));
   }
-
+  
+  clearCart() {
+    this.cart.set([]); // Reset the cart to an empty array
+  }
   constructor() { }
 }
