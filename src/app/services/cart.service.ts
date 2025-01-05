@@ -28,7 +28,7 @@ export class CartService {
     const updatedCart = this.cart().map((p) => {
       if (p.id === id) {
         const newQuantity = (p.quantity || 1) + (increment ? 1 : -1);
-        return newQuantity > 0 ? { ...p, quantity: newQuantity } : null; // Remove if quantity <= 0
+        return newQuantity > 0 ? { ...p, quantity: newQuantity } : null; 
       }
       return p;
     }).filter(Boolean) as Product[];
