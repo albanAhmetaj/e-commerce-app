@@ -24,14 +24,11 @@ import { PrimaryButtonComponent } from "../../../components/primary-button/prima
   cartService = inject(CartService);
 
   total = computed(() => {
-    let total = 0;
-    for (const item of this.cartService.cart()) {
+    return this.cartService.cart().reduce((sum, item) => {
       const price = typeof item.price === 'number' ? item.price : parseFloat(item.price);
-      if (!isNaN(price)) {
-        total += price;
-      }
-    }
-    return total;
+      const quantity = item.quantity || 1; // Default quantity to 1 if not set
+      return sum + (price * quantity);
+    }, 0);
   });
-
 }
+
